@@ -4,11 +4,11 @@
 
 | # | Livrable | Fichier |
 |---|---|---|
-| 1 | Application Streamlit `customer_segmentation` (lien) | `app_customer_segmentation.py` |
+| 1 | Application Streamlit `customer_segmentation` : https://devoir-ml-clustering.streamlit.app (page « Clients (télécom) ») | `streamlit_app.py` → `app_customer_segmentation.py` |
 | 2 | Notebook Wheat Seeds : Kmeans + CAH + déploiement Gradio | `Kmeans_On_Wheat_Seeds_Dataset.ipynb` |
 | 3 | Notebook Wholesale customers | `Wholesale_Customers_Clustering.ipynb` |
 | 4 | Notebook Facebook Live Sellers | `Facebook_Live_Sellers_Clustering.ipynb` |
-| 5 | Application Streamlit commune aux deux nouveaux datasets (lien) | `app_wholesale_facebook.py` |
+| 5 | Application Streamlit commune aux deux nouveaux datasets : https://devoir-ml-clustering.streamlit.app (pages « Grossiste » et « Facebook ») | `streamlit_app.py` → `app_wholesale_facebook.py` |
 
 ## Les deux nouveaux jeux de données
 
@@ -60,15 +60,23 @@
    - 5 742 publications **surtout aimées** : presque toutes les photos, statuts et liens ;
    - 20 publications **surtout partagées**.
 
-## La nouvelle application
+## L'application en ligne
 
-Une seule application Streamlit avec un menu pour choisir le jeu de données. Chaque page contient :
+Lien : https://devoir-ml-clustering.streamlit.app
+
+Les livrables 1 et 5 sont regroupés dans une seule application Streamlit (`streamlit_app.py`) à trois pages,
+accessibles depuis le menu de gauche :
+- **Clients (télécom)** : modèle CAH du notebook `Customer_Segmentation.ipynb` (livrable 1) ;
+- **Grossiste** : modèle Kmeans du notebook Wholesale (livrable 5) ;
+- **Facebook** : modèle CAH du notebook Facebook (livrable 5).
+
+Chaque page contient :
 - un formulaire pour saisir une nouvelle observation et obtenir sa classe ;
 - un onglet « À propos du modèle » : effectifs, profil moyen des classes, comparaison avec la vraie
   variable (canal de vente ou type de publication), nuage de points sur les deux composantes de l'ACP.
 
 ## Liens à rendre
 
-- Application Streamlit customer segmentation : à compléter après la mise en ligne
-- Application Streamlit Wholesale customers et Facebook Live Sellers : à compléter après la mise en ligne
+- Application Streamlit customer segmentation (livrable 1) : https://devoir-ml-clustering.streamlit.app
+- Application Streamlit Wholesale customers et Facebook Live Sellers (livrable 5) : https://devoir-ml-clustering.streamlit.app
 - Application Gradio Wheat Seeds : à compléter (lien donné par la dernière cellule du notebook)
