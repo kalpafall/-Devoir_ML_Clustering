@@ -1,0 +1,11 @@
+# Bibliothèques des applications Streamlit
+-r requirements.txt
+# Bibliothèques en plus pour exécuter les notebooks dans VS Code
+ipykernel
+nbformat
+matplotlib
+plotly
+yellowbrick
+setuptools  # yellowbrick importe distutils, retiré de Python 3.12
+gradio
+joblib
