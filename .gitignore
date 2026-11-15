@@ -5,3 +5,4 @@ __pycache__/
 *.joblib
 .gradio/
 CLAUDE.md
+Guide_video_presentation.pdf
