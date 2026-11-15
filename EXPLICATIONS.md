@@ -5,7 +5,7 @@
 | # | Livrable | Fichier |
 |---|---|---|
 | 1 | Application Streamlit `customer_segmentation` : https://devoir-ml-clustering.streamlit.app | `streamlit_app.py` (page « Clients télécom ») |
-| 2 | Notebook Wheat Seeds : Kmeans + CAH + déploiement Gradio | `Kmeans_On_Wheat_Seeds_Dataset.ipynb` |
+| 2 | Notebook Wheat Seeds : Kmeans + CAH + déploiement Gradio : https://33d1cec790e1903af4.gradio.live (lien temporaire) | `Kmeans_On_Wheat_Seeds_Dataset.ipynb` |
 | 3 | Notebook Wholesale customers | `Wholesale_Customers_Clustering.ipynb` |
 | 4 | Notebook Facebook Live Sellers | `Facebook_Live_Sellers_Clustering.ipynb` |
 | 5 | Application Streamlit commune aux deux nouveaux datasets : https://devoir-ml-clustering.streamlit.app | `streamlit_app.py` (pages « Clients d'un grossiste » et « Publications Facebook ») |
@@ -86,4 +86,6 @@ plus proche.
 
 - Application Streamlit customer segmentation (livrable 1) : https://devoir-ml-clustering.streamlit.app
 - Application Streamlit Wholesale customers et Facebook Live Sellers (livrable 5) : https://devoir-ml-clustering.streamlit.app
-- Application Gradio Wheat Seeds : à compléter (lien donné par la dernière cellule du notebook)
+- Application Gradio Wheat Seeds (livrable 2) : https://33d1cec790e1903af4.gradio.live  
+  Lien temporaire créé le 15 novembre 2026 par la dernière cellule du notebook (`interface.launch(share=True)`) :
+  il fonctionne tant que l'application tourne, au plus une semaine. Relancer cette cellule donne un nouveau lien.
