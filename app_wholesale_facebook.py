@@ -20,9 +20,6 @@ from sklearn.preprocessing import normalize
 
 DOSSIER = Path(__file__).parent
 
-st.set_page_config(page_title="Clustering - Wholesale et Facebook", page_icon="🧩", layout="wide")
-
-
 # ---------------------------------------------------------------- Modèles
 
 
@@ -164,18 +161,12 @@ def afficher_modele(modele, libelles, colonne_info, titre_info):
 
 
 # ---------------------------------------------------------------- Pages
+# Chaque page est une fonction, pour pouvoir être réutilisée par streamlit_app.py
+# (application unique qui regroupe les trois jeux de données).
 
-page = st.sidebar.radio(
-    "Jeu de données",
-    ["Clients d'un grossiste", "Publications Facebook"],
-)
-st.sidebar.markdown(
-    "Sources : UCI Machine Learning Repository  \n"
-    "- [Wholesale customers](https://archive.ics.uci.edu/dataset/292/wholesale+customers)  \n"
-    "- [Facebook Live Sellers in Thailand](https://archive.ics.uci.edu/dataset/488/facebook+live+sellers+in+thailand)"
-)
 
-if page == "Clients d'un grossiste":
+def page_wholesale():
+    """Page des clients du grossiste (modèle Kmeans)."""
     modele = modele_wholesale()
     libelles = {
         "Fresh": "Produits frais",
@@ -201,7 +192,9 @@ if page == "Clients d'un grossiste":
         modele_infos["infos"] = modele["infos"].replace({"Channel": {1: "Horeca", 2: "Commerce de détail"}})
         afficher_modele(modele_infos, libelles, "Channel", "Comparaison avec le canal de vente réel")
 
-else:
+
+def page_facebook():
+    """Page des publications Facebook (modèle CAH)."""
     modele = modele_facebook()
     libelles = {
         "num_reactions": "Réactions (total)",
@@ -227,3 +220,22 @@ else:
             afficher_resultat(valeurs, modele)
     with onglet_modele:
         afficher_modele(modele, libelles, "status_type", "Comparaison avec le type de publication")
+
+
+# ---------------------------------------------------------------- Lancement direct
+# `streamlit run app_wholesale_facebook.py` : application à deux pages, comme avant.
+if __name__ == "__main__":
+    st.set_page_config(page_title="Clustering - Wholesale et Facebook", page_icon="🧩", layout="wide")
+    page = st.sidebar.radio(
+        "Jeu de données",
+        ["Clients d'un grossiste", "Publications Facebook"],
+    )
+    st.sidebar.markdown(
+        "Sources : UCI Machine Learning Repository  \n"
+        "- [Wholesale customers](https://archive.ics.uci.edu/dataset/292/wholesale+customers)  \n"
+        "- [Facebook Live Sellers in Thailand](https://archive.ics.uci.edu/dataset/488/facebook+live+sellers+in+thailand)"
+    )
+    if page == "Clients d'un grossiste":
+        page_wholesale()
+    else:
+        page_facebook()

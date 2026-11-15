@@ -30,19 +30,24 @@ Dans VS Code, ouvrir un notebook puis choisir le noyau **venv** en haut à droit
 
 ```bash
 source venv/bin/activate
-streamlit run app_customer_segmentation.py      # livrable 1
-streamlit run app_wholesale_facebook.py         # livrable 5
+streamlit run streamlit_app.py                  # application unique : les trois jeux de données
+streamlit run app_customer_segmentation.py      # livrable 1 seul
+streamlit run app_wholesale_facebook.py         # livrable 5 seul
 ```
+
+`streamlit_app.py` regroupe les trois modèles déployés dans une seule application à trois pages
+(Clients télécom, Grossiste, Facebook). Les deux autres fichiers restent utilisables séparément.
 
 L'application Gradio de Wheat Seeds se lance depuis la dernière cellule du notebook
 (`interface.launch(share=True)` donne un lien public temporaire).
 
 ## Mettre en ligne sur Streamlit Community Cloud
 
-Un seul dépôt GitHub pour tout le projet, et **deux applications** créées depuis ce dépôt :
+Sur https://share.streamlit.io : « Create app », dépôt `kalpafall/-Devoir_ML_Clustering`, branche `main`,
+fichier principal `streamlit_app.py`, Python 3.12 dans « Advanced settings » → « Deploy ».
+Ce lien unique sert pour les livrables 1 et 5.
 
-1. Sur https://share.streamlit.io : « Create app », dépôt `kalpafall/Devoir_ML_Clustering`, branche `main`,
-   fichier principal `app_customer_segmentation.py` → « Deploy ». C'est le lien du livrable 1.
-2. Recommencer avec le fichier principal `app_wholesale_facebook.py`. C'est le lien du livrable 5.
+Pour deux liens séparés, créer plutôt deux applications avec les fichiers principaux
+`app_customer_segmentation.py` (livrable 1) et `app_wholesale_facebook.py` (livrable 5).
 
 Streamlit Cloud installe uniquement `requirements.txt` (les bibliothèques des notebooks n'y sont pas nécessaires).
