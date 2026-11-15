@@ -1,7 +1,46 @@
+# Thème éditorial : fond papier, titres à empattement, un seul accent terracotta.
 [theme]
 base = "light"
-primaryColor = "#00C9A7"
-backgroundColor = "#F5F8FC"
-secondaryBackgroundColor = "#EAF1FB"
-textColor = "#0F172A"
-font = "sans serif"
+primaryColor = "#B4441C"
+backgroundColor = "#FAF8F4"
+secondaryBackgroundColor = "#F1EDE6"
+textColor = "#1C1917"
+borderColor = "#E4DED4"
+linkColor = "#B4441C"
+linkUnderline = false
+showSidebarBorder = false
+
+font = "'Instrument Sans':https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+headingFont = "Fraunces:https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+baseFontSize = 15
+headingFontSizes = ["2.6rem", "1.7rem", "1.25rem", "1rem", "0.9rem", "0.8rem"]
+headingFontWeights = [500, 500, 500, 600, 600, 600]
+metricValueFontSize = "1.55rem"
+metricValueFontWeight = 500
+baseRadius = "6px"
+buttonRadius = "full"
+paddingTop = "2.5rem"
+paddingBottom = "4rem"
+
+# Couleurs des classes : les mêmes valeurs que PALETTE dans segmentation.py
+chartCategoricalColors = ["#B4441C", "#2F5D8A", "#4F7F52", "#8A5A9E"]
+orangeColor = "#B4441C"
+blueColor = "#2F5D8A"
+greenColor = "#4F7F52"
+violetColor = "#8A5A9E"
+grayColor = "#78716C"
+
+dataframeHeaderBackgroundColor = "#F1EDE6"
+dataframeBorderColor = "#E4DED4"
+
+[theme.sidebar]
+backgroundColor = "#1C1917"
+secondaryBackgroundColor = "#292524"
+codeBackgroundColor = "#292524"
+codeTextColor = "#F5F5F4"
+textColor = "#E7E5E4"
+borderColor = "#3A3431"
+primaryColor = "#E07A4F"
+linkColor = "#F0A27F"
+paddingTop = "1.5rem"

@@ -30,13 +30,20 @@ Dans VS Code, ouvrir un notebook puis choisir le noyau **venv** en haut à droit
 
 ```bash
 source venv/bin/activate
-streamlit run streamlit_app.py                  # application unique : les trois jeux de données
-streamlit run app_customer_segmentation.py      # livrable 1 seul
-streamlit run app_wholesale_facebook.py         # livrable 5 seul
+streamlit run streamlit_app.py                  # application unique : les quatre jeux de données
+streamlit run app_customer_segmentation.py      # ancienne version du livrable 1 seul
+streamlit run app_wholesale_facebook.py         # ancienne version du livrable 5 seul
 ```
 
-`streamlit_app.py` regroupe les trois modèles déployés dans une seule application à trois pages
-(Clients télécom, Grossiste, Facebook). Les deux autres fichiers restent utilisables séparément.
+`streamlit_app.py` regroupe les quatre jeux de données dans une seule application :
+
+- `streamlit_app.py` : point d'entrée et navigation (accueil, nouveaux jeux de données, jeux du cours) ;
+- `segmentation.py` : les quatre modèles, reproduits des notebooks, et l'interface commune ;
+- `app_pages/` : une page par jeu de données, plus l'accueil ;
+- `.streamlit/config.toml` et `assets/logo.svg` : thème et logo.
+
+Chaque page propose trois vues : **Simple** (une observation), **Multiple** (tableau modifiable ou
+fichier CSV, résultats téléchargeables) et **Modèle** (classes, profils, plan de l'ACP).
 
 L'application Gradio de Wheat Seeds se lance depuis la dernière cellule du notebook
 (`interface.launch(share=True)` donne un lien public temporaire).

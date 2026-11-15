@@ -4,11 +4,11 @@
 
 | # | Livrable | Fichier |
 |---|---|---|
-| 1 | Application Streamlit `customer_segmentation` : https://devoir-ml-clustering.streamlit.app (page « Clients (télécom) ») | `streamlit_app.py` → `app_customer_segmentation.py` |
+| 1 | Application Streamlit `customer_segmentation` : https://devoir-ml-clustering.streamlit.app | `streamlit_app.py` (page « Clients télécom ») |
 | 2 | Notebook Wheat Seeds : Kmeans + CAH + déploiement Gradio | `Kmeans_On_Wheat_Seeds_Dataset.ipynb` |
 | 3 | Notebook Wholesale customers | `Wholesale_Customers_Clustering.ipynb` |
 | 4 | Notebook Facebook Live Sellers | `Facebook_Live_Sellers_Clustering.ipynb` |
-| 5 | Application Streamlit commune aux deux nouveaux datasets : https://devoir-ml-clustering.streamlit.app (pages « Grossiste » et « Facebook ») | `streamlit_app.py` → `app_wholesale_facebook.py` |
+| 5 | Application Streamlit commune aux deux nouveaux datasets : https://devoir-ml-clustering.streamlit.app | `streamlit_app.py` (pages « Clients d'un grossiste » et « Publications Facebook ») |
 
 ## Les deux nouveaux jeux de données
 
@@ -64,16 +64,23 @@
 
 Lien : https://devoir-ml-clustering.streamlit.app
 
-Les livrables 1 et 5 sont regroupés dans une seule application Streamlit (`streamlit_app.py`) à trois pages,
-accessibles depuis le menu de gauche :
-- **Clients (télécom)** : modèle CAH du notebook `Customer_Segmentation.ipynb` (livrable 1) ;
-- **Grossiste** : modèle Kmeans du notebook Wholesale (livrable 5) ;
-- **Facebook** : modèle CAH du notebook Facebook (livrable 5).
+Une seule application Streamlit (`streamlit_app.py`) regroupe les quatre jeux de données. Le menu de gauche
+les range en deux groupes :
+- **Nouveaux jeux de données** (UCI) : *Clients d'un grossiste* (Kmeans) et *Publications Facebook* (CAH),
+  le livrable 5 ;
+- **Jeux de données du cours** : *Clients télécom* (CAH, le livrable 1) et *Graines de blé* (CAH).
 
-Chaque page contient :
-- un formulaire pour saisir une nouvelle observation et obtenir sa classe ;
-- un onglet « À propos du modèle » : effectifs, profil moyen des classes, comparaison avec la vraie
-  variable (canal de vente ou type de publication), nuage de points sur les deux composantes de l'ACP.
+Chaque page affiche l'origine du jeu de données, ses chiffres clés (observations, variables, modèle retenu,
+silhouette) et trois vues :
+- **Simple** : un formulaire pour une observation. L'application donne sa classe, sa proximité avec
+  chaque classe et sa position sur le plan de l'ACP.
+- **Multiple** : un tableau modifiable ou un fichier CSV importé pour classer plusieurs observations d'un
+  coup. Les résultats se téléchargent en CSV, et un fichier modèle est fourni.
+- **Modèle** : description et effectif des classes, nuage de points de l'ACP, profil moyen de chaque
+  classe, et comparaison avec une variable connue quand elle existe (canal de vente, type de publication).
+
+Comme dans les notebooks, une nouvelle observation est rangée dans la classe dont le centroïde est le
+plus proche.
 
 ## Liens à rendre
 

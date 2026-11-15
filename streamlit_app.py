@@ -1,52 +1,37 @@
 """Application Streamlit unique - Devoir ML Clustering (Kmeans et CAH).
 
-Regroupe les trois modèles déployés dans une seule application à trois pages :
-- Clients (télécom) : modèle CAH du notebook Customer_Segmentation.ipynb
-- Grossiste : modèle Kmeans du notebook Wholesale_Customers_Clustering.ipynb
-- Facebook : modèle CAH du notebook Facebook_Live_Sellers_Clustering.ipynb
-
-Les applications app_customer_segmentation.py et app_wholesale_facebook.py
-restent utilisables seules.
+Point d'entrée : navigation entre l'accueil et les quatre jeux de données.
+Les modèles et l'interface commune sont dans segmentation.py, les pages dans app_pages/.
 """
+from pathlib import Path
+
 import streamlit as st
 
-st.set_page_config(page_title="Clustering - Kmeans et CAH", page_icon="🧩", layout="wide")
-
-from app_wholesale_facebook import page_facebook, page_wholesale  # noqa: E402
+st.set_page_config(page_title="Segmentation par clustering", page_icon=":material/scatter_plot:", layout="wide")
+st.logo(str(Path(__file__).parent / "assets" / "logo.svg"), size="large")
 
 page = st.navigation(
     {
-        "Segmentation": [
-            st.Page(
-                "app_customer_segmentation.py",
-                title="Clients (télécom)",
-                icon=":material/group:",
-                help="Classe d'un client d'opérateur télécom : fidèle ou peu fidèle (modèle CAH).",
-                default=True,
-            ),
-            st.Page(
-                page_wholesale,
-                title="Grossiste",
-                icon=":material/storefront:",
-                help="Segment d'un client de grossiste selon la répartition de ses achats (modèle Kmeans).",
-                url_path="grossiste",
-            ),
-            st.Page(
-                page_facebook,
-                title="Facebook",
-                icon=":material/thumb_up:",
-                help="Type d'engagement d'une publication Facebook de vendeur en direct (modèle CAH).",
-                url_path="facebook",
-            ),
-        ]
+        "Présentation": [
+            st.Page("app_pages/accueil.py", title="Accueil", icon=":material/home:", default=True,
+                    help="Le devoir, la démarche et les quatre jeux de données."),
+        ],
+        "Nouveaux jeux de données": [
+            st.Page("app_pages/grossiste.py", title="Clients d'un grossiste", icon=":material/storefront:",
+                    help="UCI 292. Profil d'acheteur selon la répartition des dépenses (Kmeans)."),
+            st.Page("app_pages/facebook.py", title="Publications Facebook", icon=":material/forum:",
+                    help="UCI 488. Type d'engagement d'une publication de vente en direct (CAH)."),
+        ],
+        "Jeux de données du cours": [
+            st.Page("app_pages/clients.py", title="Clients télécom", icon=":material/call:",
+                    help="Fidélité d'un abonné selon son usage du service (CAH)."),
+            st.Page("app_pages/graines.py", title="Graines de blé", icon=":material/grass:",
+                    help="Taille d'une graine selon ses mesures (CAH)."),
+        ],
     }
 )
 
-st.sidebar.caption(
-    "Sources : [Customer dataset (cours ML5)](https://github.com/kalpafall/-Devoir_ML_Clustering) · "
-    "[Wholesale customers](https://archive.ics.uci.edu/dataset/292/wholesale+customers) · "
-    "[Facebook Live Sellers](https://archive.ics.uci.edu/dataset/488/facebook+live+sellers+in+thailand) "
-    "(UCI)"
-)
+with st.sidebar:
+    st.caption("Kmeans et CAH · meilleur modèle déployé pour chaque jeu de données.")
 
 page.run()
